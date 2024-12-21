@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Play by Play</title>
+</head>
+<body>
+    <h1>Play by Play for Game {{ game_id }}</h1>
+    <table>
+        <tr>
+            <th>Period</th>
+            <th>Time</th>
+            <th>Home Description</th>
+            <th>Visitor Description</th>
+            <th>Score</th>
+        </tr>
+        {% for play in playByPlay %}
+        <tr>
+            <td>{{ play['period'] }}</td>
+            <td>{{ play['pctimestring'] }}</td>
+            <td>{{ play['homedescription'] }}</td>
+            <td>{{ play['visitordescription'] }}</td>
+            <td>{{ play['score'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('game', game_id=game_id) }}">Back to Game Details</a>
+    <a href="{{ url_for('listOfGames') }}">Back to Games</a>
+</body>
+</html>
