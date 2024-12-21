@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Details</title>
+</head>
+<body>
+    <h1>{{ game['team_name_home'] }} vs {{ game['team_name_away'] }}</h1>
+    <h2>Game Date: {{ game['game_date'] }}</h2>
+
+    <h2>Game Summary</h2>
+    <p>{{ game_summary }}</p>
+
+    <h2>Box Scores</h2>
+    <h3>Home Team</h3>
+    <table>
+        <tr>
+            <th>Player Name</th>
+            <th>Team</th>
+            <th>Field Goals Made</th>
+            <th>Field Goals Attempted</th>
+            <th>Three Pointers Made</th>
+            <th>Free Throws Made</th>
+            <th>Free Throws Attempted</th>
+            <th>Rebounds</th>
+            <th>Assists</th>
+            <th>Steals</th>
+            <th>Blocks</th>
+            <th>Turnovers</th>
+            <th>Personal Fouls</th>
+        </tr>
+        {% for box_score in home_team %}
+        <tr>
+            <td>{{ box_score['player_name'] }}</td>
+            <td>{{ box_score['team'] }}</td>
+            <td>{{ box_score['field_goals_made'] }}</td>
+            <td>{{ box_score['field_goals_attempted'] }}</td>
+            <td>{{ box_score['three_pointers_made'] }}</td>
+            <td>{{ box_score['free_throws_made'] }}</td>
+            <td>{{ box_score['free_throws_attempted'] }}</td>
+            <td>{{ box_score['rebounds'] }}</td>
+            <td>{{ box_score['assists'] }}</td>
+            <td>{{ box_score['steals'] }}</td>
+            <td>{{ box_score['blocks'] }}</td>
+            <td>{{ box_score['turnovers'] }}</td>
+            <td>{{ box_score['personal_fouls'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Away Team</h3>
+    <table>
+        <tr>
+            <th>Player Name</th>
+            <th>Team</th>
+            <th>Field Goals Made</th>
+            <th>Field Goals Attempted</th>
+            <th>Three Pointers Made</th>
+            <th>Free Throws Made</th>
+            <th>Free Throws Attempted</th>
+            <th>Rebounds</th>
+            <th>Assists</th>
+            <th>Steals</th>
+            <th>Blocks</th>
+            <th>Turnovers</th>
+            <th>Personal Fouls</th>
+        </tr>
+        {% for box_score in away_team %}
+        <tr>
+            <td>{{ box_score['player_name'] }}</td>
+            <td>{{ box_score['team'] }}</td>
+            <td>{{ box_score['field_goals_made'] }}</td>
+            <td>{{ box_score['field_goals_attempted'] }}</td>
+            <td>{{ box_score['three_pointers_made'] }}</td>
+            <td>{{ box_score['free_throws_made'] }}</td>
+            <td>{{ box_score['free_throws_attempted'] }}</td>
+            <td>{{ box_score['rebounds'] }}</td>
+            <td>{{ box_score['assists'] }}</td>
+            <td>{{ box_score['steals'] }}</td>
+            <td>{{ box_score['blocks'] }}</td>
+            <td>{{ box_score['turnovers'] }}</td>
+            <td>{{ box_score['personal_fouls'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{{ url_for('play_by_play', game_id=game['game_id']) }}">View Play by Play</a>
+    <a href="{{ url_for('listOfGames') }}">Back to Games</a>
+</body>
+</html>
