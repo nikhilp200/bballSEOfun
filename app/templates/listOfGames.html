@@ -5,6 +5,7 @@
 </head>
 <body>
     <h1>List of Games</h1>
+    <a href={{url_for('index')}}>Back to Home</a>
 <ul>
     {% for game in games %}
         <li><a href={{url_for('game', game_id=game['game_id'])}}>{{ game['team_name_home'] }} vs {{ game['team_name_away'] }} on {{ game['game_date'] }}</a></li>
